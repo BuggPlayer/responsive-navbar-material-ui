@@ -8,9 +8,11 @@ const NavHeader = () => {
   const toggleDrawer = () => {
     setleft(false);
   };
+
   const openDrawer = () => {
     setleft(true);
   };
+
   return (
     <div>
       <ToolbarCompo openDrawerHandler={openDrawer} />

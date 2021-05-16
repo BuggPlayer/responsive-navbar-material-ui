@@ -21,10 +21,7 @@ const styles = (theme) => ({
 });
 
 const DrawerCompo = (props) => {
-  console.log("Drawer props" , props);
-
-  const [left, setleft] = useState(false);
-
+  
   const { classes } = props;
 
   const sideList = (side) => (
