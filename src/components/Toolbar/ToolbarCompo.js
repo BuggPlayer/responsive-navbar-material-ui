@@ -8,15 +8,23 @@ import InputBase from "@material-ui/core/InputBase";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
+import { Button } from "@material-ui/core";
 
 const styles = (theme) => ({
   grow: {
-    flexGrow: 1,
+    // flexGrow: 1,
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
+    display: "none",
+    margin: theme.spacing(2),
+    [theme.breakpoints.up("md")]: {
+      display: "block",
+    },
+  },
+  logo: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
@@ -50,7 +58,7 @@ const styles = (theme) => ({
     color: "inherit",
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 7),
+    padding: theme.spacing(1, 1, 1, 15),
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
@@ -78,7 +86,7 @@ const ToolbarCompo = (props) => {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.logo} variant="h6" noWrap>
             Material-UI
           </Typography>
           <div className={classes.search}>
@@ -95,32 +103,48 @@ const ToolbarCompo = (props) => {
             />
           </div>
           <div className={classes.grow} />
-          <div style={{display:"flex"}}   >
-            <Typography style={{}} variant="h6" color="inherit">
+          <div style={{ display: "flex" }}>
+            <Typography
+              style={{}}
+              className={classes.title}
+              variant="h6"
+              color="inherit"
+            >
               Home
             </Typography>
-            <Typography variant="h6" color="inherit">
+            <Typography className={classes.title} variant="h6" color="inherit">
               Shop
             </Typography>
-            <Typography variant="h6" color="inherit">
+            <Typography className={classes.title} variant="h6" color="inherit">
               Pages
             </Typography>
-            <Typography variant="h6" color="inherit">
+            <Typography className={classes.title} variant="h6" color="inherit">
               Blog
             </Typography>
-            <Typography variant="h6" color="inherit">
-              Contact us
+            <Typography className={classes.title} variant="h6" color="inherit">
+              Contact
             </Typography>
           </div>
-          <IconButton
-            edge="start"
-            className={classes.sectionMobile}
-            color="inherit"
-            aria-label="open drawer"
-            onClick={props.openDrawerHandler}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+            }}
           >
-            <MenuIcon />
-          </IconButton>
+            <Button variant="none" color="inherit">
+              Login
+            </Button>
+            <IconButton
+              edge="start"
+              className={classes.sectionMobile}
+              color="inherit"
+              aria-label="open drawer"
+              onClick={props.openDrawerHandler}
+            >
+              <MenuIcon />
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
     </div>

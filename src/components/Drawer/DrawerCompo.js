@@ -21,7 +21,6 @@ const styles = (theme) => ({
 });
 
 const DrawerCompo = (props) => {
-  
   const { classes } = props;
 
   const sideList = (side) => (
@@ -32,7 +31,7 @@ const DrawerCompo = (props) => {
       onKeyDown={props.toggleDrawerHandler}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+        {["Home", "Shop", "Pages", "Blog"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -43,7 +42,7 @@ const DrawerCompo = (props) => {
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
+        {["Policy", "Help", "About us"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -55,7 +54,11 @@ const DrawerCompo = (props) => {
     </div>
   );
   return (
-    <Drawer open={props.left} onClose={props.toggleDrawerHandler}>
+    <Drawer
+      anchor="right"
+      open={props.left}
+      onClose={props.toggleDrawerHandler}
+    >
       {sideList("left")}
     </Drawer>
   );
